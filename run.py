@@ -1,6 +1,23 @@
 import random
 import string
+import os
 words = "jemoeder", "jevader"
+
+def clearscreen(numlines=100):
+    """
+    Clear the console.
+    numlines is an optional argument used only as a fall-back.
+    """
+    if os.name == "posix":
+        # Unix/Linux/MacOS/BSD/etc
+        os.system('clear')
+    elif os.name in ("nt", "dos", "ce"):
+        # DOS/Windows
+        os.system('CLS')
+    else:
+        # Fallback for other operating systems.
+        print('\n' * numlines)
+
 
 def random_word(words):
     """
@@ -32,22 +49,28 @@ def game():
             used_letters.add(user_letter)
             if user_letter in word_letters:
                 word_letters.remove(user_letter)
-                print("")
-
+                clearscreen()
+                print(f"{user_letter} is in the word !!\n")            
             else:
                 lives -= 1
-                print("Letter is not in the word\n")
+                clearscreen()
+                print(f"{user_letter} is not in the word\n")          
 
         elif user_letter in used_letters:
-            print("You have already used that letter, Please try again\n")
-
+            clearscreen()
+            print(f"You have already used {user_letter} , Please try again\n")
+        
         else:
-            print("Invalid charachter, Please try again\n")
+            clearscreen()
+            print("Invalid charachter, Please try again\n")     
 
     if lives == 0:
+        clearscreen()
         print(f"You died, the word was {word}")
     else:
+        clearscreen()
         print(f"You guessed the word {word} !!")
+
 
 
 
