@@ -28,6 +28,24 @@ def random_word(words):
 
     return word
 
+def menu():
+    print("Play game".center(width))
+    print("How to play".center(width))
+
+    while True:
+        user_input = input("Press P to play game or H for How to play".center(width)).upper()
+
+        if user_input == "P" :
+            clearscreen()
+            game()
+        elif user_input == "H" :
+            "code comes later"
+        else:
+            clearscreen()
+            print("invalid charachter, Please try again\n".center(width))
+
+
+
 def game():
     """
     user input and validate the input
@@ -73,10 +91,19 @@ def game():
         print(f"You guessed the word {word} !!\n".center(width))
 
 def restart():
-    while input("Do you want to play again? Y/N\n".center(width)).upper() == "Y":
-        game()
-    else:
-        print("Thank you for playing hangman, see you later!".center(width))
+    while True: 
+        a = input("Do you want to play again? Y/N\n".center(width)).upper()
+        
+        if a == "Y":
+            clearscreen()
+            game()
+        elif a == "N":
+            clearscreen()
+            print("Thank you for playing hangman, see you later!\n".center(width))
+        else:
+            clearscreen()
+            print("Invalid choise, please chose again\n".center(width))
+
 
 
 
@@ -90,6 +117,7 @@ def main():
     run all program function
     """
     random_word(words)
+    menu()
     game()
     restart()
 
