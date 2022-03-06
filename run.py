@@ -68,9 +68,11 @@ def game():
     if lives == 0:
         clearscreen()
         print(f"You died, the word was {word}".center(width))
+        game()
     else:
         clearscreen()
         print(f"You guessed the word {word} !!".center(width))
+        game()
 
 
 
@@ -86,5 +88,4 @@ def main():
     random_word(words)
     game()
     
-
 main()
