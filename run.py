@@ -32,6 +32,7 @@ def game():
             used_letters.add(user_letter)
             if user_letter in word_letters:
                 word_letters.remove(user_letter)
+                print("")
 
             else:
                 lives -= 1
