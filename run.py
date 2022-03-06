@@ -67,12 +67,16 @@ def game():
 
     if lives == 0:
         clearscreen()
-        print(f"You died, the word was {word}".center(width))
-        game()
+        print(f"You died, the word was {word}\n".center(width))
     else:
         clearscreen()
-        print(f"You guessed the word {word} !!".center(width))
+        print(f"You guessed the word {word} !!\n".center(width))
+
+def restart():
+    while input("Do you want to play again? Y/N\n".center(width)).upper() == "Y":
         game()
+    else:
+        print("Thank you for playing hangman, see you later!".center(width))
 
 
 
@@ -87,5 +91,7 @@ def main():
     """
     random_word(words)
     game()
+    restart()
+
     
 main()
