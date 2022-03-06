@@ -1,7 +1,6 @@
 import random
 import string
 words = "jemoeder", "jevader"
-lives = 6
 
 def random_word(words):
     """
@@ -20,8 +19,11 @@ def game():
     alphabet = set(string.ascii_uppercase)
     used_letters = set()
 
-    while len(word_letters) > 0 :
-        print(f"you have used these letters:", " ".join(used_letters))
+    lives = 6
+
+    while len(word_letters) > 0 and lives > 0:
+        print(f"You have {lives} lives left")
+        print(f"You have used these letters:", " ".join(used_letters))
         word_list = [letter if letter in used_letters else "-" for letter in word]
         print(" ".join(word_list))
 
@@ -31,11 +33,20 @@ def game():
             if user_letter in word_letters:
                 word_letters.remove(user_letter)
 
+            else:
+                lives -= 1
+                print("Letter is not in the word\n")
+
         elif user_letter in used_letters:
-            print("You have already used that letter, Please try again")
+            print("You have already used that letter, Please try again\n")
 
         else:
-            print("invalid charachter, Please try again")
+            print("Invalid charachter, Please try again\n")
+
+    if lives == 0:
+        print(f"You died, the word was {word}")
+    else:
+        print(f"You guessed the word {word} !!")
 
 
 
