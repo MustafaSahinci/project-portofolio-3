@@ -30,19 +30,26 @@ def random_word(words):
 
 def menu():
     print("Play game".center(width))
-    print("How to play".center(width))
+    print("How to play\n".center(width))
 
     while True:
-        user_input = input("Press P to play game or H for How to play".center(width)).upper()
+        user_input = input("Press P to play game or H for How to play\n".center(width)).upper()
 
         if user_input == "P" :
             clearscreen()
-            game()
+            name_input()
         elif user_input == "H" :
             "code comes later"
         else:
             clearscreen()
             print("invalid charachter, Please try again\n".center(width))
+
+def name_input():
+    global name
+    name = input("Enter your name:\n".center(width))
+    clearscreen()
+    game()
+        
 
 
 
@@ -58,7 +65,7 @@ def game():
     lives = 6
 
     while len(word_letters) > 0 and lives > 0:
-        print(f"You have {lives} lives left".center(width))
+        print(f"Hello {name} you have {lives} lives left".center(width))
         print(f"You have used these letters:".center(width), " ".join(used_letters))
         word_list = [letter if letter in used_letters else "-" for letter in word]
         print(" ".join(word_list).center(width))
@@ -86,6 +93,7 @@ def game():
     if lives == 0:
         clearscreen()
         print(f"You died, the word was {word}\n".center(width))
+        restart()
     else:
         clearscreen()
         print(f"You guessed the word {word} !!\n".center(width))
@@ -99,6 +107,7 @@ def restart():
             game()
         elif a == "N":
             clearscreen()
+            menu()
             print("Thank you for playing hangman, see you later!\n".center(width))
         else:
             clearscreen()
@@ -118,6 +127,7 @@ def main():
     """
     random_word(words)
     menu()
+    name()
     game()
     restart()
 
