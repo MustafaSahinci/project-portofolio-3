@@ -4,72 +4,6 @@ import os
 words = "jemoeder", "jevader"
 width = os.get_terminal_size().columns
 
-lives_visual_dict = {
-        0: """
-                ___________
-               | /        | 
-               |/        ( )
-               |         /|\\
-               |          |
-               |         / \\
-               |
-           """,
-        1: """
-                ___________
-               | /        | 
-               |/        ( )
-               |          |\\
-               |          |   
-               |         / \\
-               |
-            """,
-        2: """
-                ___________
-               | /        | 
-               |/        ( )
-               |          |
-               |          |
-               |         / \\
-               |
-            """,
-        3: """
-                ___________
-               | /        | 
-               |/        ( )
-               |          |
-               |          |
-               |         /
-               |
-            """,
-        4: """
-                ___________
-               | /        | 
-               |/        ( )
-               |          |
-               |          |
-               |
-               |          
-            """,
-        5: """
-                 ___________
-               | /        | 
-               |/        ( )
-               |
-               |          
-               |          
-               |
-            """,
-        6: """  
-                ___________
-               | /        | 
-               |/        
-               |
-               |
-               |
-               |
-            """,
-    }
-
 def clearscreen(numlines=100):
     """
     Clear the console.
@@ -93,6 +27,79 @@ def random_word(words):
     word = random.choice(words).upper()
 
     return word
+
+lives_visual_dict = {
+        0: 
+            """
+                 ___________
+                | /        | 
+                |/        ( )
+                |         /|\\
+                |          |
+                |         / \\
+                |
+            """,
+        1: 
+            """
+                         ___________
+                        | /        | 
+                        |/        ( )
+                        |          |\\
+                        |          |   
+                        |         / \\
+                        |
+            """,
+        2: 
+            """
+                         ___________
+                        | /        | 
+                        |/        ( )
+                        |          |
+                        |          |
+                        |         / \\
+                        |
+            """,
+        3: 
+            """
+                         ___________
+                        | /        | 
+                        |/        ( )
+                        |          |
+                        |          |
+                        |         /
+                        |
+            """,
+        4: 
+            """
+                         ___________
+                        | /        | 
+                        |/        ( )
+                        |          |
+                        |          |
+                        |
+                        |          
+            """,
+        5: 
+            """
+                         ___________
+                        | /        | 
+                        |/        ( )
+                        |
+                        |          
+                        |          
+                        |
+            """,
+        6: 
+            """  
+                         ___________
+                        | /        | 
+                        |/        
+                        |
+                        |
+                        |
+                        |
+            """
+    }
 
 def menu():
     print("Play game".center(width))
@@ -132,7 +139,7 @@ def game():
 
     while len(word_letters) > 0 and lives > 0:
         print(f"Hello {name} you have {lives} lives left".center(width))
-        print(f"You have used these letters:".center(width), " ".join(used_letters))
+        print(f"You have used these letters:\n".center(width), " ".join(used_letters))
         word_list = [letter if letter in used_letters else "-" for letter in word]
         print(lives_visual_dict[lives])
         print(" ".join(word_list).center(width))
