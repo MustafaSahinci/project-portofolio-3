@@ -37,7 +37,7 @@ def menu():
 
         if user_input == "P" :
             clearscreen()
-            name_input()
+            game()
         elif user_input == "H" :
             "code comes later"
         else:
@@ -48,7 +48,7 @@ def name_input():
     global name
     name = input("Enter your name:\n".center(width))
     clearscreen()
-    game()
+    menu()
         
 
 
@@ -92,7 +92,7 @@ def game():
 
     if lives == 0:
         clearscreen()
-        print(f"You died, the word was {word}\n".center(width))
+        print(f"Sorry {name} you died, the word was {word}\n".center(width))
         restart()
     else:
         clearscreen()
@@ -126,8 +126,8 @@ def main():
     run all program function
     """
     random_word(words)
+    name_input()
     menu()
-    name()
     game()
     restart()
 
