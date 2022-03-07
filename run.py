@@ -28,18 +28,16 @@ def random_word(words):
 
     return word
 
-lives_visual_dict = {
-        0: 
+lives_visual_dict = [
             """
-                 ___________
-                | /        | 
-                |/        ( )
-                |         /|\\
-                |          |
-                |         / \\
-                |
-            """,
-        1: 
+                         ___________
+                        | /        | 
+                        |/        ( )
+                        |         /|\\
+                        |          |
+                        |         / \\
+                        |
+            """,     
             """
                          ___________
                         | /        | 
@@ -48,8 +46,7 @@ lives_visual_dict = {
                         |          |   
                         |         / \\
                         |
-            """,
-        2: 
+            """,     
             """
                          ___________
                         | /        | 
@@ -58,8 +55,7 @@ lives_visual_dict = {
                         |          |
                         |         / \\
                         |
-            """,
-        3: 
+            """,     
             """
                          ___________
                         | /        | 
@@ -68,8 +64,7 @@ lives_visual_dict = {
                         |          |
                         |         /
                         |
-            """,
-        4: 
+            """,    
             """
                          ___________
                         | /        | 
@@ -78,8 +73,7 @@ lives_visual_dict = {
                         |          |
                         |
                         |          
-            """,
-        5: 
+            """,     
             """
                          ___________
                         | /        | 
@@ -88,8 +82,7 @@ lives_visual_dict = {
                         |          
                         |          
                         |
-            """,
-        6: 
+            """,    
             """  
                          ___________
                         | /        | 
@@ -99,7 +92,11 @@ lives_visual_dict = {
                         |
                         |
             """
-    }
+]
+
+# for a in lives_visual_dict:
+#     print(f"".center(width))
+
 
 def menu():
     print("Play game".center(width))
