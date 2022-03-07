@@ -4,6 +4,72 @@ import os
 words = "jemoeder", "jevader"
 width = os.get_terminal_size().columns
 
+lives_visual_dict = {
+        0: """
+                ___________
+               | /        | 
+               |/        ( )
+               |         /|\\
+               |          |
+               |         / \\
+               |
+           """,
+        1: """
+                ___________
+               | /        | 
+               |/        ( )
+               |          |\\
+               |          |   
+               |         / \\
+               |
+            """,
+        2: """
+                ___________
+               | /        | 
+               |/        ( )
+               |          |
+               |          |
+               |         / \\
+               |
+            """,
+        3: """
+                ___________
+               | /        | 
+               |/        ( )
+               |          |
+               |          |
+               |         /
+               |
+            """,
+        4: """
+                ___________
+               | /        | 
+               |/        ( )
+               |          |
+               |          |
+               |
+               |          
+            """,
+        5: """
+                 ___________
+               | /        | 
+               |/        ( )
+               |
+               |          
+               |          
+               |
+            """,
+        6: """  
+                ___________
+               | /        | 
+               |/        
+               |
+               |
+               |
+               |
+            """,
+    }
+
 def clearscreen(numlines=100):
     """
     Clear the console.
@@ -68,6 +134,7 @@ def game():
         print(f"Hello {name} you have {lives} lives left".center(width))
         print(f"You have used these letters:".center(width), " ".join(used_letters))
         word_list = [letter if letter in used_letters else "-" for letter in word]
+        print(lives_visual_dict[lives])
         print(" ".join(word_list).center(width))
 
         user_letter = input("Guess a letter:\n".center(width)).upper()
@@ -92,6 +159,7 @@ def game():
 
     if lives == 0:
         clearscreen()
+        print(lives_visual_dict[lives])
         print(f"Sorry {name} you died, the word was {word}\n".center(width))
         restart()
     else:
