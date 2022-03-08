@@ -28,6 +28,13 @@ def random_word(words):
 
     return word
 
+def header(): 
+    print("""                         
+    ||  ||   //\\\   ||\\\  || ||///   ||\\\  //||   //\\\   ||\\\  ||
+    ||--||  //--\\\  || \\\ || ||  //| || \\\// ||  //--\\\  || \\\ ||
+    ||  || //    \\\ ||  \\\|| ||||||| ||      || //    \\\ ||  \\\||
+    """)  
+
 lives_visual_dict = [
             """
                          ___________
@@ -94,11 +101,8 @@ lives_visual_dict = [
             """
 ]
 
-# for a in lives_visual_dict:
-#     print(f"".center(width))
-
-
 def menu():
+    header()
     print("Play game".center(width))
     print("How to play\n".center(width))
 
@@ -112,9 +116,11 @@ def menu():
             "code comes later"
         else:
             clearscreen()
+            header()
             print("invalid charachter, Please try again\n".center(width))
 
 def name_input():
+    header()
     global name
     name = input("Enter your name:\n".center(width))
     clearscreen()
@@ -127,6 +133,7 @@ def game():
     """
     user input and validate the input
     """
+    header()
     word = random_word(words)
     word_letters = set(word)
     alphabet = set(string.ascii_uppercase)
@@ -147,27 +154,33 @@ def game():
             if user_letter in word_letters:
                 word_letters.remove(user_letter)
                 clearscreen()
+                header()
                 print(f"{user_letter} is in the word !!\n".center(width))       
             else:
                 lives -= 1
                 clearscreen()
+                header()
                 print(f"{user_letter} is not in the word\n".center(width))        
 
         elif user_letter in used_letters:
             clearscreen()
+            header()
             print(f"You have already used {user_letter} , Please try again\n".center(width))
         
         else:
             clearscreen()
+            header()
             print("Invalid charachter, Please try again\n".center(width))    
 
     if lives == 0:
         clearscreen()
+        header()
         print(lives_visual_dict[lives])
         print(f"Sorry {name} you died, the word was {word}\n".center(width))
         restart()
     else:
         clearscreen()
+        header()
         print(f"You guessed the word {word} !!\n".center(width))
 
 def restart():
@@ -203,5 +216,4 @@ def main():
     game()
     restart()
 
-    
 main()
