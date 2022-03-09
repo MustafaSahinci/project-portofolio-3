@@ -118,7 +118,17 @@ def menu():
             clearscreen()
             game()
         elif user_input == "H":
-            "code comes later"
+            clearscreen()
+            header()
+            print("jemoeder je vader hahahaah bhooyyt\n".center(width))
+            b = input("press enter to go back\n".center(width)).upper()
+            if b == "":
+                clearscreen()
+                menu()
+            else:
+                clearscreen()
+                header()
+                print("you typed some text before pressing enter\n".center(width))
         else:
             clearscreen()
             header()
