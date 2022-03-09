@@ -31,11 +31,11 @@ def random_word(words):
 
 
 def header():
-    print("""                         
-    ||  ||   //\\\   ||\\\  || ||///   ||\\\  //||   //\\\   ||\\\  ||
-    ||--||  //--\\\  || \\\ || ||  //| || \\\// ||  //--\\\  || \\\ ||
-    ||  || //    \\\ ||  \\\|| ||||||| ||      || //    \\\ ||  \\\||
-    """)
+    print(                         
+    "||  ||   //\\\   ||\\\  || ||///   ||\\\  //||   //\\\   ||\\\  ||".center(width),
+    "||--||  //--\\\  || \\\ || ||  //| || \\\// ||  //--\\\  || \\\ ||".center(width),
+    "||  || //    \\\ ||  \\\|| ||||||| ||      || //    \\\ ||  \\\||\n".center(width), sep=os.linesep
+    )
 
 
 lives_visual_dict = [
@@ -121,7 +121,12 @@ def menu():
         elif user_input == "H":
             clearscreen()
             header()
-            print("jemoeder je vader hahahaah bhooyyt\n".center(width))
+            print(
+            "Guess the letters of the hidden word".center(width),
+            "If you guess the right letter, the letter will reveal".center(width),
+            "But if you guess wrong you lose a life".center(width),
+            "You have 6 lives\n".center(width),
+            "Good Luck!\n".center(width), sep=os.linesep)
             b = input("press enter to go back\n".center(width)).upper()
             if b == "":
                 clearscreen()
