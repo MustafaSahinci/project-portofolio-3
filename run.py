@@ -107,6 +107,7 @@ lives_visual_dict = [
 
 def menu():
     header()
+    print(F"Welcome {name}\n".center(width))
     print("Play game".center(width))
     print("How to play\n".center(width))
 
