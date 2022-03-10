@@ -11,6 +11,7 @@ for the live site click
  The user can play this game by entering commands into the terminal. They must guess the letters correctly and have six guesses. The word will appear as "----", but if the user guesses the right letter, then the letter will appear instead of "-.". When the user enters a letter they have already guessed before, or puts a character that is invalid, they get a warning and must guess again. The user must guess all the letters in the word to win.
 
  ## 3. features
+ ### existing features
  - Name input screen 
    - the user must input his name
  ![name input](docs/............)
@@ -25,4 +26,38 @@ for the live site click
 
 - The game
   - Computer chooses a random word
-   
+    The user must guess a letter
+    if the user guess the correct letter, the letter will be shown
+    if the user guess the incorrect letter they will lose a live and the hangman will start appearing
+    if the user inputs an invalid charachter they get a warning
+    the user can see how many lives are left and witch word they already used
+    if the user guesses the word they can go to the next word
+    if the user dies they can choose to play again
+
+### future features
+- set difficulty levels
+- add highscores 
+
+## 4. Data models
+
+## 5. Testing
+I have manually tested this project by doing the following:
+
+- Passed the code through a PEP8 linter and confirmed there are no problems.
+- Given invalid inputs: strings when numbers are excepted, out of bounds inputs, same input twice.
+- Tested in my local terminal and the Code Institute Heroku terminal.
+
+## 6. Bugs
+### Solved bugs
+
+### Remaining bugs
+
+## 7. Deployment
+- Steps for deployment
+  - Fork or clone this repository
+  - Create a new Heroku app
+  - Set the buildbacks to Pyhton and NodeJS in that order
+  - Link the Heroku app to repository
+  - Click on Deploy
+
+## 8. Credits
