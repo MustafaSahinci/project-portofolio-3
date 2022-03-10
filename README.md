@@ -25,14 +25,14 @@ for the live site click
 ![How to play](docs/............)
 
 - The game
-  - Computer chooses a random word
-    The user must guess a letter
-    if the user guess the correct letter, the letter will be shown
-    if the user guess the incorrect letter they will lose a live and the hangman will start appearing
-    if the user inputs an invalid charachter they get a warning
-    the user can see how many lives are left and witch word they already used
-    if the user guesses the word they can go to the next word
-    if the user dies they can choose to play again
+  - The computer selects a random word
+  - A letter must be guessed by the user
+  - If the user guesses correctly, the letter will be displayed
+  - They will lose a life if they guess the wrong letter, and   the hangman will start to appear
+  - When a user inputs an invalid character, a warning appears
+  - The user can see how many lives they have left and what letters they have already used
+  - After guessing the word, the user can move on to the next
+  -  The user can choose to play again if they die
 
 ### future features
 - set difficulty levels
@@ -51,7 +51,7 @@ I have manually tested this project by doing the following:
 ### Solved bugs
 
 ### Remaining bugs
-
+- No bugs remaining
 ## 7. Deployment
 - Steps for deployment
   - Fork or clone this repository

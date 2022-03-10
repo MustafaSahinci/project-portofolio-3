@@ -31,10 +31,15 @@ def random_word(words):
 
 
 def header():
-    print(                         
-    "||  ||   //\\\   ||\\\  || ||///   ||\\\  //||   //\\\   ||\\\  ||".center(width),
-    "||--||  //--\\\  || \\\ || ||  //| || \\\// ||  //--\\\  || \\\ ||".center(width),
-    "||  || //    \\\ ||  \\\|| ||||||| ||      || //    \\\ ||  \\\||\n".center(width), sep=os.linesep
+    """
+    print the header
+    """
+    print(
+        "||  ||   //\\\   ||\\\  || ||///   ||\\\  //||   //\\\   ||\\\  ||".center(
+            width),
+        "||--||  //--\\\  || \\\ || ||  //| || \\\// ||  //--\\\  || \\\ ||".center(
+            width),
+        "||  || //    \\\ ||  \\\|| ||||||| ||      || //    \\\ ||  \\\||\n".center(width), sep=os.linesep
     )
 
 
@@ -102,10 +107,13 @@ lives_visual_dict = [
     |
     |
     """
-    ]
+]
 
 
 def menu():
+    """
+    Shows the welcome message and the choises the user can choose. play game and how to play
+    """
     header()
     print(F"Welcome {name}\n".center(width))
     print("Play game".center(width))
@@ -114,7 +122,6 @@ def menu():
     while True:
         user_input = input(
             "Press P to play game or H for How to play\n".center(width)).upper()
-
         if user_input == "P":
             clearscreen()
             game()
@@ -122,13 +129,16 @@ def menu():
             clearscreen()
             header()
             print(
-            "Guess the letters of the hidden word".center(width),
-            "If you guess the right letter, the letter will reveal".center(width),
-            "But if you guess wrong you lose a life".center(width),
-            "You have 6 lives\n".center(width),
-            "Good Luck!\n".center(width), sep=os.linesep)
-            b = input("press enter to go back\n".center(width)).upper()
-            if b == "":
+                "Guess the hidden letters".center(width),
+                "The letter will reveal itself if you guess it correctly".center(
+                    width),
+                "However, if you guess incorrectly you lose a life".center(
+                    width),
+                "You have 6 lives\n".center(width),
+                "Good Luck!\n".center(width), sep=os.linesep)
+            enter_input = input(
+                "press enter to go back\n".center(width)).upper()
+            if enter_input == "":
                 clearscreen()
                 menu()
             else:
@@ -142,6 +152,9 @@ def menu():
 
 
 def name_input():
+    """
+    the user must input his name
+    """
     header()
     global name
     name = input("Enter your name:\n".center(width))
@@ -207,9 +220,13 @@ def game():
 
 
 def restart():
+    """
+    Ask the users if they want to play again
+    """
     while True:
-        a = input("Do you want to play again? Y/N\n".center(width)).upper()
-        if a == "Y":
+        user_input = input(
+            "Do you want to play again? Y/N\n".center(width)).upper()
+        if user_input == "Y":
             clearscreen()
             game()
         elif a == "N":
