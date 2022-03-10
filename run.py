@@ -182,7 +182,7 @@ def game():
         print(display_hangman[lives])
         print(" ".join(word_list).center(width))
 
-        user_letter = input("Guess a letter:\n".center(width)).upper()
+        user_letter = input("Guess a letter:\n".center(width)).upper() #from here
         if user_letter in alphabet - used_letters:
             used_letters.add(user_letter)
             if user_letter in word_letters:
@@ -194,7 +194,7 @@ def game():
                 lives -= 1
                 clearscreen()
                 header()
-                print(f"{user_letter} is not in the word\n".center(width))
+                print(f"{user_letter} is not in the word\n".center(width)) # til here
 
         elif user_letter in used_letters:
             clearscreen()
