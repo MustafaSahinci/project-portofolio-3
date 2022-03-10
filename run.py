@@ -1,49 +1,10 @@
 import random
 import string
 import os
-words = "jemoeder", "jevader"
+words = "apple", "banana", "avocado", "blackberries", "Apricots", "mango", "orange", "watermelon"
 width = os.get_terminal_size().columns
 
-
-def clearscreen(numlines=100):
-    """
-    Clear the console.
-    numlines is an optional argument used only as a fall-back.
-    """
-    if os.name == "posix":
-        # Unix/Linux/MacOS/BSD/etc
-        os.system('clear')
-    elif os.name in ("nt", "dos", "ce"):
-        # DOS/Windows
-        os.system('CLS')
-    else:
-        # Fallback for other operating systems.
-        print('\n' * numlines)
-
-
-def random_word(words):
-    """
-    choose random word
-    """
-    word = random.choice(words).upper()
-
-    return word
-
-
-def header():
-    """
-    print the header
-    """
-    print(
-        "||  ||   //\\\   ||\\\  || ||///   ||\\\  //||   //\\\   ||\\\  ||".center(
-            width),
-        "||--||  //--\\\  || \\\ || ||  //| || \\\// ||  //--\\\  || \\\ ||".center(
-            width),
-        "||  || //    \\\ ||  \\\|| ||||||| ||      || //    \\\ ||  \\\||\n".center(width), sep=os.linesep
-    )
-
-
-lives_visual_dict = [
+display_hangman = [
     """
      __________
     | /        | 
@@ -108,6 +69,44 @@ lives_visual_dict = [
     |
     """
 ]
+
+
+def clearscreen(numlines=100):
+    """
+    Clear the console.
+    numlines is an optional argument used only as a fall-back.
+    """
+    if os.name == "posix":
+        # Unix/Linux/MacOS/BSD/etc
+        os.system('clear')
+    elif os.name in ("nt", "dos", "ce"):
+        # DOS/Windows
+        os.system('CLS')
+    else:
+        # Fallback for other operating systems.
+        print('\n' * numlines)
+
+
+def random_word(words):
+    """
+    choose random word
+    """
+    word = random.choice(words).upper()
+
+    return word
+
+
+def header():
+    """
+    print the header
+    """
+    print(
+        "||  ||   //\\\   ||\\\  || ||///   ||\\\  //||   //\\\   ||\\\  ||".center(
+            width),
+        "||--||  //--\\\  || \\\ || ||  //| || \\\// ||  //--\\\  || \\\ ||".center(
+            width),
+        "||  || //    \\\ ||  \\\|| ||||||| ||      || //    \\\ ||  \\\||\n".center(width), sep=os.linesep
+    )
 
 
 def menu():
@@ -180,7 +179,7 @@ def game():
             width), " ".join(used_letters))
         word_list = [
             letter if letter in used_letters else "-" for letter in word]
-        print(lives_visual_dict[lives])
+        print(display_hangman[lives])
         print(" ".join(word_list).center(width))
 
         user_letter = input("Guess a letter:\n".center(width)).upper()
@@ -210,7 +209,7 @@ def game():
     if lives == 0:
         clearscreen()
         header()
-        print(lives_visual_dict[lives])
+        print(display_hangman[lives])
         print(f"Sorry {name} you died, the word was {word}\n".center(width))
         restart()
     else:
