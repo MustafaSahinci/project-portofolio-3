@@ -228,7 +228,7 @@ def restart():
         if user_input == "Y":
             clearscreen()
             game()
-        elif a == "N":
+        elif user_input == "N":
             clearscreen()
             menu()
             print("Thank you for playing hangman, see you later!\n".center(width))
