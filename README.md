@@ -8,6 +8,4 @@ for the live site click
 [here](https://hangman-game-ms.herokuapp.com/)
 
 ## 2. How to play
-The user can play this game by inputting commands into the terminal. They must guess the right letters. First the word is displayed like this "----" if the user  guesses the rigt letter, then the letter wil replace the "-". If the user puts a letter they already guessed before they get a warning and must guess again  
-
-The user can play by inputting commands into the mock terminal. The user must guess the hidden word, represented with "_ _ _ _" to show the user how many letters are in the word. As the player corrrectly guesses letters, the "_" are replaced with the correct letter. If a player puts in an incorrect command, an error message displays and the player is asked to resubmit their choice. The game is over either when the player has correctly guessed the word or they have run out of lives.
+ The user can play this game by inputting commands into the terminal. They must guess the right letters and have 6 guesses. First the word is displayed like this "----" if the user guesses the right letter, then the letter will replace the "-". If the user puts a letter they already guessed before or puts an invalid character they get a warning and must guess again. the user must guess all the letters in the word to win.
