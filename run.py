@@ -1,74 +1,72 @@
 import random
 import string
 import os
-words = "apple", "banana", "avocado", "blackberries", "Apricots", "mango", "orange", "watermelon"
+import textwrap
+WORDS = "apple", "banana", "avocado", "blackberries", "Apricots", "mango", "orange", "watermelon"
 width = os.get_terminal_size().columns
+name = None
 
-display_hangman = [
-    """
-     __________
-    | /        | 
-    |/        ( )
-    |         /|\\
-    |          |
-    |         / \\
-    |
-    """,
-    """
-     ___________
-    | /        | 
-    |/        ( )
-    |          |\\
-    |          |   
-    |         / \\
-    |
-    """,
-    """
-     ___________
-    | /        | 
-    |/        ( )
-    |          |
-    |          |
-    |         / \\
-    |
-    """,
-    """
-     ___________
-    | /        | 
-    |/        ( )
-    |          |
-    |          |
-    |         /
-    |
-    """,
-    """
-     ___________
-    | /        | 
-    |/        ( )
-    |          |
-    |          |
-    |
-    |          
-    """,
-    """
-     ___________
-    | /        | 
-    |/        ( )
-    |
-    |          
-    |          
-    |
-    """,
-    """  
-     ___________
-    | /        | 
-    |/        
-    |
-    |
-    |
-    |
-    """
+display_hangman =[
+"     __________    \n"
+"    | /        |   \n"
+"    |/        ( )  \n"
+"    |         /|\\ \n"
+"    |          |   \n"
+"    |         / \\ \n"
+"    |              \n".center(width)
+,
+"     ___________   \n"
+"    | /        |   \n"
+"    |/        ( )  \n"
+"    |          |\\ \n"
+"    |          |   \n"
+"    |         / \\ \n"
+"    |              \n".center(width)
+,
+"     ___________   \n"
+"    | /        |   \n"
+"    |/        ( )  \n"
+"    |          |   \n"
+"    |          |   \n"
+"    |         / \\ \n"
+"    |              \n".center(width)
+,
+"     ___________   \n"
+"    | /        |   \n"
+"    |/        ( )  \n"
+"    |          |   \n"
+"    |          |   \n"
+"    |         /    \n"
+"    |              \n".center(width)
+,
+"     ___________   \n"
+"    | /        |   \n"
+"    |/        ( )  \n"
+"    |          |   \n"
+"    |          |   \n"
+"    |              \n"
+"    |              \n" .center(width)
+,
+"     ___________   \n"
+"    | /        |   \n" 
+"    |/        ( )  \n"
+"    |              \n"
+"    |              \n" 
+"    |              \n"
+"    |              \n".center(width)
+,  
+"     ___________   \n"
+"    | /        |   \n"
+"    |/             \n"
+"    |              \n"
+"    |              \n"
+"    |              \n"
+"    |              \n".center(width)
 ]
+
+for line in display_hangman:
+    print((>80)line)
+
 
 
 def clearscreen(numlines=100):
@@ -76,22 +74,22 @@ def clearscreen(numlines=100):
     Clear the console.
     numlines is an optional argument used only as a fall-back.
     """
-    # if os.name == "posix":
-    #     # Unix/Linux/MacOS/BSD/etc
-    #     os.system('clear')
-    # elif os.name in ("nt", "dos", "ce"):
-    #     # DOS/Windows
-    #     os.system('CLS')
-    # else:
-    #     # Fallback for other operating systems.
-    #     print('\n' * numlines)
+    if os.name == "posix":
+        # Unix/Linux/MacOS/BSD/etc
+        os.system('clear')
+    elif os.name in ("nt", "dos", "ce"):
+        # DOS/Windows
+        os.system('CLS')
+    else:
+        # Fallback for other operating systems.
+        print('\n' * numlines)
 
 
-def random_word(words):
+def random_word(WORDS):
     """
     choose random word
     """
-    word = random.choice(words).upper()
+    word = random.choice(WORDS).upper()
 
     return word
 
@@ -109,6 +107,25 @@ def header():
     )
 
 
+def name_input(name):
+    """
+    the user must input his name
+    """
+    header()
+    while True:
+        name = input("Enter your name:\n".center(width))
+        if not name.isalpha():
+            clearscreen()
+            header()
+            print("Name must be alphabets only\n".center(width))
+        else:
+            break
+    clearscreen()
+    return name
+
+name = name_input(name)
+
+
 def menu():
     """
     Shows the welcome message and the choises the user can choose. play game and how to play
@@ -123,7 +140,7 @@ def menu():
             "Press P to play game or H for How to play\n".center(width)).upper()
         if user_input == "P":
             clearscreen()
-            game()
+            play_game()
         elif user_input == "H":
             clearscreen()
             header()
@@ -150,23 +167,12 @@ def menu():
             print("invalid charachter, Please try again\n".center(width))
 
 
-def name_input():
-    """
-    the user must input his name
-    """
-    header()
-    global name
-    name = input("Enter your name:\n".center(width))
-    clearscreen()
-    menu()
-
-
-def game():
+def play_game():
     """
     user input and validate the input
     """
     header()
-    word = random_word(words)
+    word = random_word(WORDS)
     word_letters = set(word)
     alphabet = set(string.ascii_uppercase)
     used_letters = set()
@@ -227,7 +233,7 @@ def restart():
             "Do you want to play again? Y/N\n".center(width)).upper()
         if user_input == "Y":
             clearscreen()
-            game()
+            play_game()
         elif user_input == "N":
             clearscreen()
             menu()
@@ -236,16 +242,12 @@ def restart():
             clearscreen()
             print("Invalid choise, please chose again\n".center(width))
 
-
 def main():
     """
     run all program function
     """
-    random_word(words)
-    name_input()
+    random_word(WORDS)
     menu()
-    game()
-    restart()
 
-
-main()
+if __name__ == '__main__':
+    main()
