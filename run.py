@@ -65,20 +65,20 @@ display_hangman =[
 ]
 
 
-def clearscreen(numlines=100):
-    """
-    Clear the console.
-    numlines is an optional argument used only as a fall-back.
-    """
-    if os.name == "posix":
-        # Unix/Linux/MacOS/BSD/etc
-        os.system('clear')
-    elif os.name in ("nt", "dos", "ce"):
-        # DOS/Windows
-        os.system('CLS')
-    else:
-        # Fallback for other operating systems.
-        print('\n' * numlines)
+# def clearscreen(numlines=100):
+    # """
+    # Clear the console.
+    # numlines is an optional argument used only as a fall-back.
+    # """
+    # if os.name == "posix":
+    #     # Unix/Linux/MacOS/BSD/etc
+    #     os.system('clear')
+    # elif os.name in ("nt", "dos", "ce"):
+    #     # DOS/Windows
+    #     os.system('CLS')
+    # else:
+    #     # Fallback for other operating systems.
+    #     print('\n' * numlines)
 
 
 def random_word(WORDS):
@@ -111,12 +111,12 @@ def name_input(name):
     while True:
         name = input("Enter your name:\n".center(width))
         if not name.isalpha():
-            clearscreen()
+            # clearscreen()
             header()
             print("Name must be alphabets only\n".center(width))
         else:
             break
-    clearscreen()
+    # clearscreen()
     return name
 
 name = name_input(name)
@@ -135,10 +135,10 @@ def menu():
         user_input = input(
             "Press P to play game or H for How to play\n".center(width)).upper()
         if user_input == "P":
-            clearscreen()
+            # clearscreen()
             play_game()
         elif user_input == "H":
-            clearscreen()
+            # clearscreen()
             header()
             print(
                 "Guess the hidden letters".center(width),
@@ -151,14 +151,14 @@ def menu():
             enter_input = input(
                 "press enter to go back\n".center(width)).upper()
             if enter_input == "":
-                clearscreen()
+                # clearscreen()
                 menu()
             else:
-                clearscreen()
+                # clearscreen()
                 header()
                 print("you typed some text before pressing enter\n".center(width))
         else:
-            clearscreen()
+            # clearscreen()
             header()
             print("invalid charachter, Please try again\n".center(width))
 
@@ -189,33 +189,33 @@ def play_game():
             used_letters.add(user_letter)
             if user_letter in word_letters:
                 word_letters.remove(user_letter)
-                clearscreen()
+                # clearscreen()
                 header()
                 print(f"{user_letter} is in the word !!\n".center(width))
             else:
                 lives -= 1
-                clearscreen()
+                # clearscreen()
                 header()
                 print(f"{user_letter} is not in the word\n".center(width)) # til here
 
         elif user_letter in used_letters:
-            clearscreen()
+            # clearscreen()
             header()
             print(
                 f"You have already used {user_letter} , Please try again\n".center(width))
         else:
-            clearscreen()
+            # clearscreen()
             header()
             print("Invalid charachter, Please try again\n".center(width))
 
     if lives == 0:
-        clearscreen()
+        # clearscreen()
         header()
         print(display_hangman[lives])
         print(f"Sorry {name} you died, the word was {word}\n".center(width))
         restart()
     else:
-        clearscreen()
+        # clearscreen()
         header()
         print(f"You guessed the word {word} !!\n".center(width))
 
@@ -228,14 +228,14 @@ def restart():
         user_input = input(
             "Do you want to play again? Y/N\n".center(width)).upper()
         if user_input == "Y":
-            clearscreen()
+            # clearscreen()
             play_game()
         elif user_input == "N":
-            clearscreen()
+            # clearscreen()
             menu()
             print("Thank you for playing hangman, see you later!\n".center(width))
         else:
-            clearscreen()
+            # clearscreen()
             print("Invalid choise, please chose again\n".center(width))
 
 def main():
