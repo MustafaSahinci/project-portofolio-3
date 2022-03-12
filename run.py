@@ -64,10 +64,6 @@ display_hangman =[
 "    |              \n".center(width)
 ]
 
-for line in display_hangman:
-    print((>80)line)
-
-
 
 def clearscreen(numlines=100):
     """
