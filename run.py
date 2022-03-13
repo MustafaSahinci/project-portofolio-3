@@ -6,6 +6,7 @@ WORDS = ["apple", "banana", "avocado"]
 width = os.get_terminal_size().columns
 name = None
 
+
 display_hangman = [
     """
                                      ___________
@@ -225,7 +226,7 @@ def play_game():
         clearscreen()
         header()
         print(f"You guessed the word {word} !!\n".center(width))
-        next_word()
+        restart()
 
 
 def restart():
