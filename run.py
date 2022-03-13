@@ -1,7 +1,7 @@
 import random
 import string
 import os
-WORDS = "apple", "banana", "avocado"
+WORDS = ["apple", "banana", "avocado"]
 # , "blackberries", "Apricots", "mango", "orange", "watermelon"
 width = os.get_terminal_size().columns
 name = None
@@ -224,7 +224,6 @@ def play_game():
     else:
         clearscreen()
         header()
-        word.del(WORDS)
         print(f"You guessed the word {word} !!\n".center(width))
         next_word()
 
