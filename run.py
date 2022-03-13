@@ -1,72 +1,67 @@
 import random
 import string
 import os
-WORDS = "apple", "banana", "avocado", "blackberries", "Apricots", "mango", "orange", "watermelon"
+WORDS = "apple", "banana", "avocado"
+# , "blackberries", "Apricots", "mango", "orange", "watermelon"
 width = os.get_terminal_size().columns
 name = None
 
 display_hangman = [
     """
-                                     __________    
-                                    | /        |   
-                                    |/        ( )  
-                                    |         /|\\ 
-                                    |          |   
-                                    |         / \\ 
-                                    |              \n"""
-    ,
+                                     ___________
+                                    | /        |
+                                    |/        ( )
+                                    |         /|\\
+                                    |          |
+                                    |         / \\
+                                    |              \n""",
     """
-                                     ___________   
-                                    | /        |   
-                                    |/        ( )  
-                                    |          |\\ 
-                                    |          |   
-                                    |         / \\ 
-                                    |              \n"""
-    ,
+                                     ___________
+                                    | /        |
+                                    |/        ( )
+                                    |          |\\
+                                    |          |
+                                    |         / \\
+                                    |              \n""",
     """
-                                     ___________   
-                                    | /        |   
-                                    |/        ( )  
-                                    |          |   
-                                    |          |   
-                                    |         / \\ 
-                                    |              \n"""
-    ,
+                                     ___________
+                                    | /        |
+                                    |/        ( )
+                                    |          |
+                                    |          |
+                                    |         / \\
+                                    |              \n""",
     """
-                                     ___________   
-                                    | /        |   
-                                    |/        ( )  
-                                    |          |   
-                                    |          |   
-                                    |         /    
-                                    |              \n"""
-    ,
-    """ 
-                                     ___________   
-                                    | /        |   
-                                    |/        ( )  
-                                    |          |   
-                                    |          |   
-                                    |              
-                                    |              \n"""
-    ,
+                                     ___________
+                                    | /        |
+                                    |/        ( )
+                                    |          |
+                                    |          |
+                                    |         /
+                                    |              \n""",
     """
-                                     ___________   
-                                    | /        |    
-                                    |/        ( )  
-                                    |              
-                                    |               
-                                    |              
-                                    |              \n"""
-    ,  
-    """ 
-                                     ___________   
-                                    | /        |   
-                                    |/             
-                                    |              
-                                    |              
-                                    |              
+                                     ___________
+                                    | /        |
+                                    |/        ( )
+                                    |          |
+                                    |          |
+                                    |
+                                    |              \n""",
+    """
+                                     ___________
+                                    | /        |
+                                    |/        ( )
+                                    |
+                                    |
+                                    |
+                                    |              \n""",
+    """
+                                     ___________
+                                    | /        |
+                                    |/
+                                    |
+                                    |
+                                    |
                                     |              \n"""
 ]
 
@@ -101,11 +96,12 @@ def header():
     print the header
     """
     print(
-        "||  ||   //\\\   ||\\\  || ||///   ||\\\  //||   //\\\   ||\\\  ||".center(
-            width),
-        "||--||  //--\\\  || \\\ || ||  //| || \\\// ||  //--\\\  || \\\ ||".center(
-            width),
-        "||  || //    \\\ ||  \\\|| ||||||| ||      || //    \\\ ||  \\\||\n".center(width), sep=os.linesep
+        "||  ||   //\\\   ||\\\  || ||///   ||\\\  //||"
+        "   //\\\   ||\\\  ||".center(width),
+        "||--||  //--\\\  || \\\ || ||  //| || \\\// ||"
+        "  //--\\\  || \\\ ||".center(width),
+        " ||  || //    \\\ ||  \\\|| ||||||| ||      ||"
+        " //    \\\ ||  \\\||\n".center(width), sep=os.linesep
     )
 
 
@@ -131,7 +127,8 @@ name = name_input(name)
 
 def menu():
     """
-    Shows the welcome message and the choises the user can choose. play game and how to play
+    Shows the welcome message and the choises the user can choose.
+    play game and how to play
     """
     header()
     print(F"Welcome {name}\n".center(width))
@@ -140,7 +137,8 @@ def menu():
 
     while True:
         user_input = input(
-            "Press P to play game or H for How to play\n".center(width)).upper()
+            "Press P to play game or H for"
+            " How to play\n.".center(width)).upper()
         if user_input == "P":
             clearscreen()
             play_game()
@@ -148,10 +146,10 @@ def menu():
             clearscreen()
             header()
             print(
-                "Guess the hidden letters".center(width),
-                "The letter will reveal itself if you guess it correctly".center(
-                    width),
-                "However, if you guess incorrectly you lose a life".center(
+                "Guess the hidden letters\n".center(width),
+                "The letter will reveal itself if you guess"
+                " it correctly\n".center(width),
+                "However, if you guess incorrectly you lose a life\n".center(
                     width),
                 "You have 6 lives\n".center(width),
                 "Good Luck!\n".center(width), sep=os.linesep)
@@ -163,7 +161,8 @@ def menu():
             else:
                 clearscreen()
                 header()
-                print("you typed some text before pressing enter\n".center(width))
+                print("you typed some text before"
+                      " pressing enter\n".center(width))
         else:
             clearscreen()
             header()
@@ -191,7 +190,7 @@ def play_game():
         print(display_hangman[lives])
         print(" ".join(word_list).center(width))
 
-        user_letter = input("Guess a letter:\n".center(width)).upper()  #from here
+        user_letter = input("Guess a letter:\n".center(width)).upper()
         if user_letter in alphabet - used_letters:
             used_letters.add(user_letter)
             if user_letter in word_letters:
@@ -203,13 +202,14 @@ def play_game():
                 lives -= 1
                 clearscreen()
                 header()
-                print(f"{user_letter} is not in the word\n".center(width))  # til here
+                print(f"{user_letter} is not in the word\n".center(width))
 
         elif user_letter in used_letters:
             clearscreen()
             header()
             print(
-                f"You have already used {user_letter} , Please try again\n".center(width))
+                f"You have already used {user_letter} ,"
+                 " Please try again\n".center(width))
         else:
             clearscreen()
             header()
@@ -224,7 +224,9 @@ def play_game():
     else:
         clearscreen()
         header()
+        word.del(WORDS)
         print(f"You guessed the word {word} !!\n".center(width))
+        next_word()
 
 
 def restart():
@@ -240,11 +242,32 @@ def restart():
         elif user_input == "N":
             clearscreen()
             menu()
-            print("Thank you for playing hangman, see you later!\n".center(width))
+            print("Thank you for playing hangman,"
+                  " see you later!\n".center(width))
         else:
             clearscreen()
+            header()
             print("Invalid choise, please chose again\n".center(width))
 
+def next_word():
+    """
+    Ask the user to continue
+    """
+    while True:
+        user_input = input(
+            "Would you like to continue? Y/N\n".center(width)).upper()
+        if user_input == "Y":
+            clearscreen()
+            play_game()
+        elif user_input == "N":
+            clearscreen()
+            menu()
+            print("Thank you for playing hangman,"
+                  " see you later!\n".center(width))
+        else:
+            clearscreen()
+            header()
+            print("Invalid choise, please chose again\n".center(width))
 
 def main():
     """
