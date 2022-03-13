@@ -248,6 +248,7 @@ def restart():
             header()
             print("Invalid choise, please chose again\n".center(width))
 
+
 def next_word():
     """
     Ask the user to continue
@@ -267,6 +268,7 @@ def next_word():
             clearscreen()
             header()
             print("Invalid choise, please chose again\n".center(width))
+
 
 def main():
     """
