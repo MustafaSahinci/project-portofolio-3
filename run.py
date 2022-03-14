@@ -1,7 +1,7 @@
 import random
 import string
 import os
-WORDS = ["apple", "banana", "avocado"]
+words = ["apple", "banana", "avocado"]
 # , "blackberries", "Apricots", "mango", "orange", "watermelon"
 width = os.get_terminal_size().columns
 name = None
@@ -83,11 +83,11 @@ def clearscreen(numlines=100):
         print('\n' * numlines)
 
 
-def random_word(WORDS):
+def random_word(words):
     """
     choose random word
     """
-    word = random.choice(WORDS).upper()
+    word = random.choice(words).upper()
 
     return word
 
@@ -175,7 +175,7 @@ def play_game():
     user input and validate the input
     """
     header()
-    word = random_word(WORDS)
+    word = random_word(words)
     word_letters = set(word)
     alphabet = set(string.ascii_uppercase)
     used_letters = set()
@@ -235,27 +235,6 @@ def restart():
     """
     while True:
         user_input = input(
-            "Do you want to play again? Y/N\n".center(width)).upper()
-        if user_input == "Y":
-            clearscreen()
-            play_game()
-        elif user_input == "N":
-            clearscreen()
-            menu()
-            print("Thank you for playing hangman,"
-                  " see you later!\n".center(width))
-        else:
-            clearscreen()
-            header()
-            print("Invalid choise, please chose again\n".center(width))
-
-
-def next_word():
-    """
-    Ask the user to continue
-    """
-    while True:
-        user_input = input(
             "Would you like to continue? Y/N\n".center(width)).upper()
         if user_input == "Y":
             clearscreen()
@@ -275,7 +254,7 @@ def main():
     """
     run all program function
     """
-    random_word(WORDS)
+    random_word(words)
     menu()
 
 
