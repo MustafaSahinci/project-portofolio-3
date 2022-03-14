@@ -118,8 +118,8 @@ def name_input(name):
             header()
             print("Name must be alphabets only\n".center(width))
         else:
+            clearscreen()
             break
-    clearscreen()
     return name
 
 

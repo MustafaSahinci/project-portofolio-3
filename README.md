@@ -51,7 +51,13 @@ I have manually tested this project by doing the following:
 ### Solved bugs
 
 ### Remaining bugs
-- No bugs remaining
+Im looking into it, yes on iphone it is not working but in the browser the deployed version will work.
+
+So it appears that it is not designed to be run on a mobile at all, it is not responsive and therefore I don't believe that testing on a mobile will go ahead.
+
+This is nothing you have done, it is the libarby used to create the console "emulator", its just not compatible.
+
+I would document this in your readme if you like, but the outcome is that all projects using this template, which is a requirement of pp3 will have the same issue.
 ## 7. Deployment
 - Steps for deployment
   - Fork or clone this repository
