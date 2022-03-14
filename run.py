@@ -148,7 +148,8 @@ def menu():
             header()
             print(
                 "Try to guess the hidden letters\n".center(width),
-                "If you guess correctly, the letter will reveal itself\n".center(width),
+                "If you guess correctly, the letter will"
+                " reveal itself\n".center(width),
                 "If you guess incorrectly, you will lose a life\n".center(
                     width),
                 "You have 6 lives\n".center(width),
