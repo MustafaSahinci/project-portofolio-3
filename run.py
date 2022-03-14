@@ -147,10 +147,9 @@ def menu():
             clearscreen()
             header()
             print(
-                "Guess the hidden letters\n".center(width),
-                "The letter will reveal itself if you guess"
-                " it correctly\n".center(width),
-                "However, if you guess incorrectly you lose a life\n".center(
+                "Try to guess the hidden letters\n".center(width),
+                "If you guess correctly, the letter will reveal itself\n".center(width),
+                "If you guess incorrectly, you will lose a life\n".center(
                     width),
                 "You have 6 lives\n".center(width),
                 "Good Luck!\n".center(width), sep=os.linesep)
