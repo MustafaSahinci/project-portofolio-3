@@ -31,7 +31,7 @@ for the live site click
   - They will lose a life if they guess the wrong letter, and   the hangman will start to appear
   ![the game](docs/game.png)
   - The user can see how many lives they have left and what letters they have already used
-  - After guessing the word, the user can move on to the next
+  - After guessing the word, the user can move on to the next word
   -  The user can choose to play again if they die
 
 ### future features
@@ -50,17 +50,17 @@ These are the Technology I used for this project.
 ![lucid](docs/lucid.png)
 
 ## 5. Testing
-I have manually tested this project by doing the following:
+I have tested this project by doing the following:
 
 - Passed the code through a PEP8 linter and confirmed there are no problems.
 ![pep8](docs/pep8.png)
 - Given invalid inputs: strings when numbers are excepted, out of bounds inputs, same input twice.
 - Tested in my local terminal and the Code Institute Heroku terminal.
-- Name validation
+- Name validation. The user must enter letters, numbers or other inputs are not allowed.
 ![testing](docs/name-validation.png)
-- Press enter validation
+- Press enter validation. The user must press enter.
 ![testing](docs/hvalidator.png)
-- letter input validation
+- letter input validation. Only one letter can be entered by the user.
 ![testing](docs/game-validator.png)
 - Letter is in the word
 ![testing](docs/letter-in-word.png)
@@ -70,14 +70,14 @@ I have manually tested this project by doing the following:
 ![testing](docs/win.png)
 - Died
 ![testing](docs/died.png)
-- Continue validation
+- Continue validation. If the user wants to continue or quit, they must choose Y or N
 ![testing](docs/validation.png)
 
 ## 6. Bugs
 ### Solved bugs
 
 ### Remaining bugs
-it is not working on iphone, and the Code Institute tutor told me this :
+The game is not working on iphone, and the Code Institute tutor told me this :
 
 Im looking into it, yes on iphone it is not working but in the browser the deployed version will work.
 
@@ -107,8 +107,8 @@ This game was deployed to GitHub pages :
 5. Click on Deploy
 
 ## 8. Credits
-My mentor Rohit Sharma
-Code institute slack community
-Stackoverflow
-w3schools
-youtube tutorials
+- My mentor Rohit Sharma
+- Code institute slack community
+- Stackoverflow
+- w3schools
+- youtube tutorials
