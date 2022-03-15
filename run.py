@@ -67,7 +67,7 @@ display_hangman = [
 ]
 
 
-def clearscreen(numlines=100):
+def clear_screen(numlines=100):
     """
     Clear the console.
     numlines is an optional argument used only as a fall-back.
@@ -106,6 +106,14 @@ def header():
     )
 
 
+def clear_header():
+    """
+    calls clear_screen and header functions
+    """
+    clear_screen()
+    header()
+
+
 def name_input(name):
     """
     the user must input his name
@@ -114,11 +122,10 @@ def name_input(name):
     while True:
         name = input("Enter your name:\n".center(width))
         if not name.isalpha():
-            clearscreen()
-            header()
+            clear_header()
             print("Name must be alphabets only\n".center(width))
         else:
-            clearscreen()
+            clear_screen()
             break
     return name
 
@@ -141,11 +148,10 @@ def menu():
             "Press P to play game or H for"
             " How to play\n.".center(width)).upper()
         if user_input == "P":
-            clearscreen()
+            clear_screen()
             play_game()
         elif user_input == "H":
-            clearscreen()
-            header()
+            clear_header()
             print(
                 "Try to guess the hidden letters\n".center(width),
                 "If you guess correctly, the letter will"
@@ -157,16 +163,14 @@ def menu():
             enter_input = input(
                 "press enter to go back\n".center(width)).upper()
             if enter_input == "":
-                clearscreen()
+                clear_screen()
                 menu()
             else:
-                clearscreen()
-                header()
+                clear_header()
                 print("you typed some text before"
                       " pressing enter\n".center(width))
         else:
-            clearscreen()
-            header()
+            clear_header()
             print("invalid charachter, Please try again\n".center(width))
 
 
@@ -196,57 +200,48 @@ def play_game():
             used_letters.add(user_letter)
             if user_letter in word_letters:
                 word_letters.remove(user_letter)
-                clearscreen()
-                header()
+                clear_header()
                 print(f"{user_letter} is in the word !!\n".center(width))
             else:
                 lives -= 1
-                clearscreen()
-                header()
+                clear_header()
                 print(f"{user_letter} is not in the word\n".center(width))
 
         elif user_letter in used_letters:
-            clearscreen()
-            header()
+            clear_header()
             print(
                 f"You have already used {user_letter} ,"
                  " Please try again\n".center(width))
         else:
-            clearscreen()
-            header()
+            clear_header()
             print("Invalid charachter, Please try again\n".center(width))
 
     if lives == 0:
-        clearscreen()
-        header()
+        clear_header()
         print(display_hangman[lives])
         print(f"Sorry {name} you died, the word was {word}\n".center(width))
         restart()
     else:
-        clearscreen()
-        header()
+        clear_header()
         print(f"You guessed the word {word} !!\n".center(width))
         restart()
 
 
 def restart():
     """
-    Ask the users if they want to play again
+    Ask the users if they want to continue or quit
     """
     while True:
         user_input = input(
             "Would you like to continue? Y/N\n".center(width)).upper()
         if user_input == "Y":
-            clearscreen()
+            clear_screen()
             play_game()
         elif user_input == "N":
-            clearscreen()
+            clear_screen()
             menu()
-            print("Thank you for playing hangman,"
-                  " see you later!\n".center(width))
         else:
-            clearscreen()
-            header()
+            clear_header()
             print("Invalid choise, please chose again\n".center(width))
 
 
