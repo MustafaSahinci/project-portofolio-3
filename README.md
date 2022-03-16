@@ -46,10 +46,11 @@ These are the Technology I used for this project.
 - Github
 - Heroku
 - Tinypng
-- Lucid
+
+## 5. Lucid
 ![lucid](docs/lucid.png)
 
-## 5. Testing
+## 6. Testing
 I have tested this project by doing the following:
 
 - Passed the code through a PEP8 linter and confirmed there are no problems.
@@ -73,8 +74,9 @@ I have tested this project by doing the following:
 - Continue validation. If the user wants to continue or quit, they must choose Y or N
 ![testing](docs/validation.png)
 
-## 6. Bugs
+## 7. Bugs
 ### Solved bugs
+Some print lines were too long, so I split them into two
 
 ### Remaining bugs
 The game is not working on iphone, and the Code Institute tutor told me this :
@@ -83,10 +85,10 @@ Im looking into it, yes on iphone it is not working but in the browser the deplo
 
 So it appears that it is not designed to be run on a mobile at all, it is not responsive and therefore I don't believe that testing on a mobile will go ahead.
 
-This is nothing you have done, it is the liblary used to create the console "emulator", its just not compatible.
+This is nothing you have done, it is the library used to create the console "emulator", its just not compatible.
 
 I would document this in your readme if you like, but the outcome is that all projects using this template, which is a requirement of pp3 will have the same issue.
-## 7. Deployment
+## 8. Deployment
 This game was deployed to GitHub pages :
 
 ### Gitpod
@@ -100,15 +102,20 @@ This game was deployed to GitHub pages :
 
 ### Heroku
 
-1. Fork or clone this repository
-2. Create a new Heroku app
-3. Set the buildbacks to Pyhton and NodeJS in that order
-4. Link the Heroku app to repository
-5. Click on Deploy
+1. Fork or clone this repository.
+2. requirements.txt can be left empty as this project does not use any external libraries.
+3. Create a new app in Heroku.
+4. Select "New" and "Create new app".
+5. Name the new app and click "Create new app".
+6. In "Settings" select "BuildPack" and select Python and Node.js.
+7. Whilst still in "Settings", click "Reveal Config Vars" and input the folloing. KEY: PORT, VALUE: 8000. Nothing else is needed here as this project does not have any sensitive files.
+8. Click on "Deploy" and select your deploy method and repository.
+9. Click "Connect" on selected repository.
+10. choose "Deploy Branch" in the manual deploy section.
+11. you can choose "Enable Automatic Deploys" if you want.
+10. Heroku will now deploy the site.
 
-## 8. Credits
+## 9. Credits
 - My mentor Rohit Sharma
-- Code institute slack community
 - Stackoverflow
-- w3schools
 - youtube tutorials
