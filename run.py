@@ -1,7 +1,7 @@
 import random
 import string
 import os
-words = ["apple", "banana", "avocado"]
+WORDS = ["apple", "banana", "avocado"]
 # , "blackberries", "Apricots", "mango", "orange", "watermelon"
 width = os.get_terminal_size().columns
 name = None
@@ -83,11 +83,11 @@ def clear_screen(numlines=100):
         print('\n' * numlines)
 
 
-def random_word(words):
+def random_word(WORDS):
     """
     choose random word
     """
-    word = random.choice(words).upper()
+    word = random.choice(WORDS).upper()
 
     return word
 
@@ -176,10 +176,12 @@ def menu():
 
 def play_game():
     """
-    user input and validate the input
+    get user input and validate the input
+    if word_letters = 0, user wins
+    if lives = 0, user lose
     """
     header()
-    word = random_word(words)
+    word = random_word(WORDS)
     word_letters = set(word)
     alphabet = set(string.ascii_uppercase)
     used_letters = set()
@@ -249,7 +251,7 @@ def main():
     """
     run all program function
     """
-    random_word(words)
+    random_word(WORDS)
     menu()
 
 
