@@ -1,11 +1,10 @@
+import os
 import random
 import string
-import os
-WORDS = ["apple", "banana", "avocado"]
-# , "blackberries", "Apricots", "mango", "orange", "watermelon"
-width = os.get_terminal_size().columns
-name = None
 
+WORDS = ["apple", "banana", "avocado","blackberries",
+         "Apricots", "mango", "orange", "watermelon"]
+width = os.get_terminal_size().columns
 
 display_hangman = [
     """
@@ -83,7 +82,7 @@ def clear_screen(numlines=100):
         print('\n' * numlines)
 
 
-def random_word(WORDS):
+def random_word():
     """
     choose random word
     """
@@ -114,7 +113,7 @@ def clear_header():
     header()
 
 
-def name_input(name):
+def name_input():
     """
     the user must input his name
     """
@@ -129,11 +128,7 @@ def name_input(name):
             break
     return name
 
-
-name = name_input(name)
-
-
-def menu():
+def menu(name):
     """
     Shows the welcome message and the choises the user can choose.
     play game and how to play
@@ -149,7 +144,7 @@ def menu():
             " How to play\n.".center(width)).upper()
         if user_input == "P":
             clear_screen()
-            play_game()
+            play_game(name)
         elif user_input == "H":
             clear_header()
             print(
@@ -164,7 +159,7 @@ def menu():
                 "press enter to go back\n".center(width)).upper()
             if enter_input == "":
                 clear_screen()
-                menu()
+                menu(name)
             else:
                 clear_header()
                 print("you typed some text before"
@@ -174,14 +169,14 @@ def menu():
             print("invalid charachter, Please try again\n".center(width))
 
 
-def play_game():
+def play_game(name):
     """
     get user input and validate the input
     if word_letters = 0, user wins
     if lives = 0, user lose
     """
     header()
-    word = random_word(WORDS)
+    word = random_word()
     word_letters = set(word)
     alphabet = set(string.ascii_uppercase)
     used_letters = set()
@@ -213,7 +208,7 @@ def play_game():
             clear_header()
             print(
                 f"You have already used {user_letter} ,"
-                 " Please try again\n".center(width))
+                " Please try again\n".center(width))
         else:
             clear_header()
             print("Invalid charachter, Please try again\n".center(width))
@@ -222,14 +217,14 @@ def play_game():
         clear_header()
         print(display_hangman[lives])
         print(f"Sorry {name} you died, the word was {word}\n".center(width))
-        restart()
+        restart(name)
     else:
         clear_header()
         print(f"You guessed the word {word} !!\n".center(width))
-        restart()
+        restart(name)
 
 
-def restart():
+def restart(name):
     """
     Ask the users if they want to continue or quit
     """
@@ -238,10 +233,10 @@ def restart():
             "Would you like to continue? Y/N\n".center(width)).upper()
         if user_input == "Y":
             clear_screen()
-            play_game()
+            play_game(name)
         elif user_input == "N":
             clear_screen()
-            menu()
+            menu(name)
         else:
             clear_header()
             print("Invalid choise, please chose again\n".center(width))
@@ -251,8 +246,9 @@ def main():
     """
     run all program function
     """
-    random_word(WORDS)
-    menu()
+    random_word()
+    name = name_input()
+    menu(name)
 
 
 if __name__ == '__main__':
