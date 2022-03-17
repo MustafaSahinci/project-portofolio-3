@@ -2,8 +2,11 @@ import os
 import random
 import string
 
-WORDS = ["apple", "banana", "avocado","blackberries",
-         "Apricots", "mango", "orange", "watermelon"]
+WORDS = ["apple", "banana", "avocado","blackberries","Cherry",
+         "Apricots", "mango", "orange", "watermelon","Pear",
+         "Strawberry", "Nectarine", "Grape", "Pomegranate",
+         "Plum", "Mandarin", "Papaya", "Kiwi", "Pineapple",
+         "Lime", "Lemon", "Grapefruit", "Melon", "Peach"]
 width = os.get_terminal_size().columns
 
 display_hangman = [
