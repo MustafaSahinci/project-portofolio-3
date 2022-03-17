@@ -37,6 +37,7 @@ for the live site click
 ### future features
 - set difficulty levels
 - add highscores 
+- add hints
 
 ## 4. Technology
 These are the Technology I used for this project.
@@ -76,7 +77,8 @@ I have tested this project by doing the following:
 
 ## 7. Bugs
 ### Solved bugs
-Some print lines were too long, so I split them into two
+- Some print lines were too long, so I split them into two.
+- When I first tried using the name_input functions, I ran into a problem as I was calling the name from different functions. Now the problem is solved since I passed the name variable as an argument to the functions. 
 
 ### Remaining bugs
 The game is not working on iphone, and the Code Institute tutor told me this :

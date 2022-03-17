@@ -128,6 +128,7 @@ def name_input():
             break
     return name
 
+
 def menu(name):
     """
     Shows the welcome message and the choises the user can choose.
@@ -216,7 +217,7 @@ def play_game(name):
     if lives == 0:
         clear_header()
         print(display_hangman[lives])
-        print(f"Sorry {name} you died, the word was {word}\n".center(width))
+        print(f"Oh My God! They Killed {name}, You Bastards! the word was {word}\n".center(width))
         restart(name)
     else:
         clear_header()
@@ -230,7 +231,7 @@ def restart(name):
     """
     while True:
         user_input = input(
-            "Would you like to continue? Y/N\n".center(width)).upper()
+            "Would you like to continue? [Y]ES/[N]O\n".center(width)).upper()
         if user_input == "Y":
             clear_screen()
             play_game(name)
