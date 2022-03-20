@@ -2,8 +2,8 @@ import os
 import random
 import string
 
-WORDS = ["apple", "banana", "avocado","blackberries","Cherry",
-         "Apricots", "mango", "orange", "watermelon","Pear",
+WORDS = ["apple", "banana", "avocado", "blackberries", "Cherry",
+         "Apricots", "mango", "orange", "watermelon", "Pear",
          "Strawberry", "Nectarine", "Grape", "Pomegranate",
          "Plum", "Mandarin", "Papaya", "Kiwi", "Pineapple",
          "Lime", "Lemon", "Grapefruit", "Melon", "Peach"]
@@ -220,7 +220,8 @@ def play_game(name):
     if lives == 0:
         clear_header()
         print(display_hangman[lives])
-        print(f"Oh My God! They Killed {name}, You Bastards! the word was {word}\n".center(width))
+        print(f"Oh My God! They Killed {name},"
+              f" You Bastards! the word was {word}\n".center(width))
         restart(name)
     else:
         clear_header()
